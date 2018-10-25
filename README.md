@@ -2,6 +2,12 @@ LTCH IRC Bot
 ============
 This bot was built for a high school hacking team's IRC channel. More akin to anonop's Effexor by Aeon. Nothing too special.
 
+##How to run
+Download the directory and run 
+````
+python3 python_bot.py 2> errors.log &
+````
+
 ##Commands
 **Vend** `.vend <username>`
 \
