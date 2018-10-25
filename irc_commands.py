@@ -55,10 +55,20 @@ class Commands:
         else:
             return "Eff3 doesn't know who to shoot!", "\n"
 
+    def rainbow(message):
+        reg = re.compile("\.rainbow \w")
+
+        if reg.search(message):
+            message = message[9:]
+
+        #return ''.join('' + str(divmod(n, 14)[1] + 1) + message[n] for n in range(0, len(message)))
+
+        return "This feature isn't ready yet"
+
     def green(message, name):
         reg = re.compile("\.green \w")
 
         if reg.search(message):
-            return name + " rolls a fat spliff for " + message[6:] + " and sends it sliding down the bar. " + message[6:] + " smiles and lights it up."
+            return name + " rolls a fat spliff for " + message[7:] + " and sends it sliding down the bar. " + message[7:] + " smiles and lights it up."
         else:
             return name + " rolls a fat spliff but has no one to pass it to!"

@@ -18,6 +18,8 @@ def check(ircmsg):
                     sendmsg(x[i])
             elif message.find('.green') != -1:
                 sendmsg(Commands.green(message, name))
+            elif message.find(".rainbow") != -1:
+                sendmsg(Commands.rainbow(message))
         else:
             if ircmsg.find("PING :") != -1:
-                ping()
+                ping(message)
