@@ -35,3 +35,30 @@ class Commands:
         else:
             return "Vending... a " + random.choice(adj) + " " + random.choice(item) + "!\n"
 
+    def shoot(message, name):
+        reg = re.compile("\.shoot \w")
+
+        l1 = "+--^----------,--------,-----,--------^-,\n"
+        l2 = "| |||||||||   `--------'     |          O        BANG BANG " + name + " SHOT " + message[7:] + "!\n"
+        l3 = " +---------------------------^----------|\n"
+        l4 = "  `\_,-------, _________________________|\n"
+        l5 = "    / XXXXXX /'|       /'\n"
+        l6 = "   / XXXXXX /  `\    /'\n"
+        l7 = "  / XXXXXX /`-------'\n"
+        l8 = " / XXXXXX /\n"
+        l9 = "/ XXXXXX /\n"
+        l10 = "(________(\n"
+        l11 = " `------'\n"
+
+        if reg.search(message):
+            return l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11
+        else:
+            return "Eff3 doesn't know who to shoot!", "\n"
+
+    def green(message, name):
+        reg = re.compile("\.green \w")
+
+        if reg.search(message):
+            return name + " rolls a fat spliff for " + message[6:] + " and sends it sliding down the bar. " + message[6:] + " smiles and lights it up."
+        else:
+            return name + " rolls a fat spliff but has no one to pass it to!"
