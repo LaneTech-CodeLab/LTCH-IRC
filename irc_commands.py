@@ -24,10 +24,10 @@ class Commands:
         self.message = message
         self.name = name
 
-    def hello(name):
+    def hello(self, name):
         return "Hello " + name + '!'
 
-    def vend(message):
+    def vend(self, message):
         reg = re.compile("\.vend \w")
 
         if reg.search(message):
@@ -35,7 +35,7 @@ class Commands:
         else:
             return "Vending... a " + random.choice(adj) + " " + random.choice(item) + "!\n"
 
-    def shoot(message, name):
+    def shoot(self, message, name):
         reg = re.compile("\.shoot \w")
 
         l1 = "+--^----------,--------,-----,--------^-,\n"
@@ -55,7 +55,7 @@ class Commands:
         else:
             return "Eff3 doesn't know who to shoot!", "\n"
 
-    def rainbow(message):
+    def rainbow(self, message):
         reg = re.compile("\.rainbow \w")
 
         if reg.search(message):
@@ -65,10 +65,13 @@ class Commands:
 
         return "This feature isn't ready yet"
 
-    def green(message, name):
+    def green(self, message, name):
         reg = re.compile("\.green \w")
 
         if reg.search(message):
             return name + " rolls a fat spliff for " + message[7:] + " and sends it sliding down the bar. " + message[7:] + " smiles and lights it up."
         else:
             return name + " rolls a fat spliff but has no one to pass it to!"
+
+    def info(self):
+        return "Please check out https://github.com/Macr0Nerd/LTCH-IRC"

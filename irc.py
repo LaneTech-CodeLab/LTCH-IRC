@@ -1,4 +1,5 @@
 import socket
+import datetime
 from irc_commands import *
 
 ircsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -21,10 +22,12 @@ def joinchan(chan): # join channel(s).
     print(ircmsg)
 
 def ping(message): # respond to server Pings.
-    x = message.find("PING :") + 5
+    x = message.replace("PING", "PONG") + "\n"
+    with open('log.txt', 'a+') as log:
+        log.write(str(datetime.datetime()))
+        log.write(x)
 
-    print("PONG :" + message[x:] + "\n")
-    ircsock.sendall(("PONG :" + message[x:] + "\n").encode("utf8"))
+    ircsock.sendall(x.encode("utf8"))
 
 def sendmsg(msg, target=channel): # sends messages to the target.
     ircsock.sendall(("PRIVMSG "+ target +" :"+ msg +"\n").encode("utf8"))
