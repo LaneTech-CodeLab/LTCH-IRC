@@ -23,10 +23,6 @@ def joinchan(chan): # join channel(s).
 
 def ping(message): # respond to server Pings.
     x = message.replace("PING", "PONG") + "\n"
-    with open('log.txt', 'a+') as log:
-        log.write(str(datetime.datetime()))
-        log.write(x)
-
     ircsock.sendall(x.encode("utf8"))
 
 def sendmsg(msg, target=channel): # sends messages to the target.
